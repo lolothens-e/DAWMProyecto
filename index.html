@@ -1,13 +1,223 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JM RopaStore Church | Moda que habla de ti</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-black': '#222222',
+                        'brand-blue': '#C7DFF6',
+                        'brand-cream': '#FCFAF5',
+                        'brand-beige': '#F5E9DA',
+                        'brand-accent': '#E5CFF7'
+                    },
+                    fontFamily: {
+                        'playfair': ['"Playfair Display"', 'serif'],
+                        'montserrat': ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Montserrat', sans-serif; }
+    </style>
+</head>
+<body class="bg-brand-cream">
+    <!-- Header -->
+    <header class="bg-brand-black text-white py-8">
+        <div class="container mx-auto px-4 flex flex-col items-center">
+            <!-- Logo -->
+            <div class="mb-4 flex flex-col items-center">
+                <span class="font-playfair text-4xl font-bold tracking-wide">JM</span>
+                <span class="font-montserrat text-sm tracking-widest">ROPASTORE_CHURCH</span>
+            </div>
+            <p class="max-w-xl text-center text-lg font-light">
+                Moda que habla de ti. Vestidos elegantes, modestos y únicos para mujeres de fe. Inspirado en quienes buscan reflejar sus valores en cada ocasión.
+            </p>
+        </div>
+    </header>
+
+    <!-- Instagram-style Banner -->
+    <section class="bg-brand-blue py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                <!-- Logo y nombre -->
+                <div class="flex items-center gap-6">
+                    <img src="logo.png" alt="Logo JM Ropastore Church" 
+                         class="h-20 w-20 rounded-full bg-white border-2 border-brand-accent shadow-lg">
+                    <div class="flex flex-col">
+                        <h2 class="font-playfair text-3xl text-brand-black font-bold">Síguenos</h2>
+                        <a href="https://instagram.com/ropastore_church" 
+                           target="_blank" 
+                           class="text-lg text-brand-black hover:text-brand-accent transition-colors duration-300 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            @ropastore_church
+                        </a>
+                    </div>
+                </div>
+                <!-- Call to action -->
+                <div class="text-center md:text-left">
+                    <p class="text-brand-black text-lg">Descubre más modelos y novedades</p>
+                    <p class="text-brand-black font-light">Síguenos para ver nuestras últimas colecciones</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo estilo mosaico -->
+    <section class="py-16 bg-brand-cream">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-playfair font-bold text-center mb-12 text-brand-black">Catálogo Destacado</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <!-- Producto 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow hover:-translate-y-2 transition-transform duration-300">
+                    <div class="bg-white p-4 rounded-lg border border-gray-100">
+                        <img src="image.png" alt="Vestido Negro" class="w-full h-80 object-cover rounded-lg">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-playfair text-xl mb-1">Vestido Ana - Negro Clásico</h3>
+                        <p class="text-gray-600 mb-2">Elegancia atemporal. Perfecto para reuniones y servicios dominicales.</p>
+                        <span class="block text-sm text-gray-500 mb-1">Tallas: S, M, L</span>
+                        <span class="block font-bold text-lg text-brand-black">$75</span>
+                    </div>
+                </div>
+                <!-- Producto 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow hover:-translate-y-2 transition-transform duration-300">
+                    <div class="bg-white p-4 rounded-lg border border-gray-100">
+                        <img src="image copy 2.png" alt="Vestido Floral Celeste" class="w-full h-80 object-cover rounded-lg">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-playfair text-xl mb-1">Vestido Celeste Floral</h3>
+                        <p class="text-gray-600 mb-2">Fresco, floral y modesto. Ideal para misioneras y domingos de verano.</p>
+                        <span class="block text-sm text-gray-500 mb-1">Tallas: M, L, XL</span>
+                        <span class="block font-bold text-lg text-brand-black">$68</span>
+                    </div>
+                </div>
+                <!-- Producto 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow hover:-translate-y-2 transition-transform duration-300">
+                    <div class="bg-white p-4 rounded-lg border border-gray-100">
+                        <img src="image copy 3.png" alt="Vestido Violeta" class="w-full h-80 object-cover rounded-lg">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-playfair text-xl mb-1">Vestido Azul Midi</h3>
+                        <p class="text-gray-600 mb-2">Con manga abullonada y corte midi. Para un look discreto y sofisticado.</p>
+                        <span class="block text-sm text-gray-500 mb-1">Tallas: S, M</span>
+                        <span class="block font-bold text-lg text-brand-black">$70</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Puedes duplicar los bloques para más productos -->
+        </div>
+    </section>
+
+    <!-- Frase motivacional estilo SUD -->
+    <section class="bg-brand-accent py-8">
+        <div class="container mx-auto px-4 text-center">
+            <blockquote class="italic text-lg font-playfair text-brand-black max-w-2xl mx-auto">
+                “La modestia es un reflejo de nuestro compromiso con el Señor. Viste con propósito, inspira con tu ejemplo.”
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="py-16 bg-brand-cream">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-playfair font-bold text-center mb-12 text-brand-black">Testimonios de Nuestras Clientas</h2>
+            <div class="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
+                <!-- Testimonio 1 -->
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <!-- Cambié h-64 a h-96 y object-cover a object-contain -->
+                        <img src="evidencia1.png" alt="Cliente usando vestido negro" 
+                             class="w-full md:w-1/2 h-96 object-contain rounded-lg">
+                        <div class="flex-1">
+                            <p class="italic mb-4">"Desde que uso estos vestidos, me siento cómoda y elegante en cada reunión. ¡Recomendados para todas las jóvenes SUD!"</p>
+                            <p class="font-semibold">- Valeria Pérez, Quito</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 2 -->
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <img src="evidencia2.png" alt="Cliente usando vestido celeste" 
+                             class="w-full md:w-1/2 h-96 object-contain rounded-lg">
+                        <div class="flex-1">
+                            <p class="italic mb-4">"La calidad y los diseños son perfectos para servir en la misión y mantener mi compromiso con la modestia."</p>
+                            <p class="font-semibold">- Camila Herrera, Misionera en Lima</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 3 -->
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <img src="evidencia3.png" alt="Cliente usando vestido azul" 
+                             class="w-full md:w-1/2 h-96 object-contain rounded-lg">
+                        <div class="flex-1">
+                            <p class="italic mb-4">"Los vestidos son perfectos para asistir a la iglesia. Me encantan los diseños modestos y elegantes."</p>
+                            <p class="font-semibold">- María Santos, Guayaquil</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="py-16 bg-brand-blue">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-3xl font-playfair font-bold text-center mb-8 text-brand-black">Contáctanos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Formulario de contacto -->
+                <form class="space-y-4 bg-white p-6 rounded-lg shadow" autocomplete="off">
+                    <div>
+                        <label class="block text-gray-700 mb-2">Nombre</label>
+                        <input type="text" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Correo electrónico</label>
+                        <input type="email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Mensaje</label>
+                        <textarea required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-brand-black text-white py-2 rounded-lg hover:bg-brand-accent transition">Enviar mensaje</button>
+                </form>
+                <!-- WhatsApp Contacto -->
+                <div class="flex flex-col items-center justify-center">
+                    <a href="https://wa.me/593123456789" target="_blank" class="inline-flex items-center bg-brand-black text-white px-6 py-3 rounded-full text-lg hover:bg-brand-accent transition">
+                        <!-- WhatsApp SVG Icon (sin librerías extra) -->
+                        <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.478A12.004 12.004 0 0 0 12 0C5.373 0 0 5.373 0 12c0 2.117.553 4.14 1.601 5.938L0 24l6.201-1.577A11.957 11.957 0 0 0 12 24c6.627 0 12-5.373 12-12 0-3.193-1.246-6.2-3.48-8.522zM12 22.035c-1.847 0-3.662-.486-5.237-1.404l-.374-.216-3.682.936.985-3.585-.243-.378C2.165 16.51 1.666 14.3 1.666 12c0-5.72 4.614-10.334 10.334-10.334 2.758 0 5.357 1.076 7.322 3.027A10.326 10.326 0 0 1 22.334 12c0 5.72-4.614 10.334-10.334 10.334z"/><path d="M17.524 14.713l-2.309-.661a1.074 1.074 0 0 0-1.024.273l-.502.512a8.37 8.37 0 0 1-3.895-3.894l.512-.501a1.077 1.077 0 0 0 .273-1.024l-.66-2.31a1.076 1.076 0 0 0-1.003-.75h-.79a1.073 1.073 0 0 0-1.074 1.073c0 6.038 4.926 10.964 10.964 10.964a1.073 1.073 0 0 0 1.073-1.073v-.79a1.074 1.074 0 0 0-.751-1.003z"/></svg>
+                        WhatsApp
+                    </a>
+                    <p class="mt-4 text-brand-black">¡Envíanos un mensaje para consultar tallas, disponibilidad o realizar tu pedido!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-black py-6">
+        <div class="container mx-auto px-4 text-center text-white text-sm">
+            <p>© 2025 JM Ropastore Church. Moda que habla de ti.</p>
+        </div>
+    </footer>
+</body>
 </html>
