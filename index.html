@@ -1,490 +1,220 @@
 <!DOCTYPE html>
-<html lang="en-rw">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acodemaster | E-Learning & AI Tutoring</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'rwanda-blue': '#20603d',
-                        'rwanda-yellow': '#fad201',
-                        'rwanda-sun': '#00a1de',
-                    },
-                    fontFamily: {
-                        kinyarwanda: ['Noto Sans', 'Ubuntu', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .chatbot-message { animation: fadeIn 0.3s; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .course-card:hover { transform: translateY(-5px); }
-        .offline-badge::after { content: ""; position: absolute; width: 8px; height: 8px; background: #fad201; border-radius: 50%; top: 8px; right: 8px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JM RopaStore Church | Moda que habla de ti</title>
+
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Tailwind Config -->
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+'brand-black': '#222222',
+'brand-blue': '#C7DFF6',
+'brand-cream': '#FCFAF5',
+'brand-beige': '#F5E9DA',
+'brand-accent': '#E5CFF7'
+},
+fontFamily: {
+'playfair': ['"Playfair Display"', 'serif'],
+'montserrat': ['Montserrat', 'sans-serif']
+}
+}
+}
+}
+</script>
+<style>
+body { font-family: 'Montserrat', sans-serif; }
+</style>
 </head>
-<body class="bg-gray-50 font-kinyarwanda">
-    <!-- Header -->
-    <header class="bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <div class="w-10 h-10 rounded-full bg-rwanda-blue flex items-center justify-center">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E" 
-                         alt="SomaRwanda Logo" class="w-6 h-6">
-                </div>
-                <h1 class="text-xl font-bold text-rwanda-blue">Soma<span class="text-rwanda-yellow">Rwanda</span></h1>
-            </div>
-            
-            <nav class="hidden md:flex space-x-8">
-                <a href="#courses" class="text-gray-700 hover:text-rwanda-blue">Amasomo</a>
-                <a href="#ai-tutor" class="text-gray-700 hover:text-rwanda-blue">Umwarimu wa AI</a>
-                <a href="#offline" class="text-gray-700 hover:text-rwanda-blue">Gukora utagifite internet</a>
-                <a href="#about" class="text-gray-700 hover:text-rwanda-blue">Ibyerekeye</a>
-            </nav>
-            
-            <div class="flex items-center space-x-4">
-                <button class="px-4 py-2 bg-rwanda-blue text-white rounded-full text-sm hover:bg-blue-800 transition">
-                    Injira
-                </button>
-                <div class="flex space-x-2">
-                    <button class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center">
-                        RW
-                    </button>
-                    <button class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center">
-                        EN
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
+<body class="bg-brand-cream">
+<!-- Header -->
+<header class="bg-brand-black text-white py-8">
+<div class="container mx-auto px-4 flex flex-col items-center">
+<!-- Logo -->
+<div class="mb-4 flex flex-col items-center">
+<span class="font-playfair text-4xl font-bold tracking-wide">JM</span>
+<span class="font-montserrat text-sm tracking-widest">ROPASTORE_CHURCH</span>
+</div>
+<p class="max-w-xl text-center text-lg font-light">
+Moda que habla de ti. Vestidos elegantes, modestos y únicos para mujeres de fe. Inspirado en quienes buscan reflejar sus valores en cada ocasión.
+</p>
+</div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-rwanda-blue to-rwanda-sun text-white py-16">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h2 class="text-4xl font-bold mb-4">Uburezi bwa Kuri bose, ku buntu</h2>
-                <p class="text-lg mb-6">
-                    Platform yacu ifite AI tutor, amasomo yihariye, kandi ikora ndetse nta internet ufite. Yubatswe mu Rwanda, kubanyarwanda.
-                </p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button class="bg-rwanda-yellow text-rwanda-blue font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition">
-                        Tangira kwiga nonaha
-                    </button>
-                    <button class="bg-transparent border-2 border-white text-white font-bold py-3 px-6 rounded-full hover:bg-white/10 transition">
-                        Icyifuzo cy'umushinga
-                    </button>
-                </div>
-            </div>
-            <div class="md:w-1/2 relative">
-                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
-                    <div class="flex items-center mb-4">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13.5v7l5.25-3.5L11 6.5z'/%3E%3C/svg%3E" 
-                             alt="SomaBot" class="w-16 h-16 rounded-full bg-rwanda-blue p-2">
-                        <div class="ml-4">
-                            <h3 class="font-bold">SomaBot</h3>
-                            <p class="text-sm opacity-80">AI Tutor w'Ubuvanganzo</p>
-                        </div>
-                    </div>
-                    
-                    <div class="space-y-3">
-                        <div class="bg-white/90 text-gray-800 rounded-lg p-3 rounded-bl-none">
-                            <p>Mwaramutse! Ninde mushobora kumbwira icyo ushaka kwiga uyu munsi?</p>
-                        </div>
-                        
-                        <div class="flex justify-end">
-                            <div class="bg-rwanda-yellow text-gray-800 rounded-lg p-3 rounded-br-none max-w-xs">
-                                <p>Mwaramutse SomaBot! Nshaka kwiga Imibare y'inguzanyo</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4 flex border-t border-white/30 pt-4">
-                        <input type="text" placeholder="Andika ubutumwa hano..." class="flex-1 bg-white/20 border-none rounded-full px-4 py-2 placeholder-white/70">
-                        <button class="ml-2 bg-rwanda-yellow text-rwanda-blue w-10 h-10 rounded-full flex items-center justify-center">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="absolute -bottom-6 -left-6 bg-white text-rwanda-blue p-2 px-4 rounded-full shadow-md text-sm">
-                    <i class="fas fa-wifi-slash mr-2"></i> Ikora ndetse nta internet ufite
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Instagram-style Banner -->
+<section class="bg-brand-blue py-12">
+<div class="container mx-auto px-4">
+<div class="flex flex-col md:flex-row items-center justify-center gap-8">
+<!-- Logo y nombre -->
+<div class="flex items-center gap-6">
+<img src="logo.png" alt="Logo JM Ropastore Church"
+class="h-20 w-20 rounded-full bg-white border-2 border-brand-accent shadow-lg">
+<div class="flex flex-col">
+<h2 class="font-playfair text-3xl text-brand-black font-bold">Síguenos</h2>
+<a href="https://instagram.com/ropastore_church"
+target="_blank"
+class="text-lg text-brand-black hover:text-brand-accent transition-colors duration-300 flex items-center gap-2">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+</svg>
+@ropastore_church
+</a>
+</div>
+</div>
+<!-- Call to action -->
+<div class="text-center md:text-left">
+<p class="text-brand-black text-lg">Descubre más modelos y novedades</p>
+<p class="text-brand-black font-light">Síguenos para ver nuestras últimas colecciones</p>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Features Section -->
-    <section class="py-16 bg-gray-100" id="features">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 text-rwanda-blue">Inyungu za SomaRwanda</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
-                    <div class="w-12 h-12 rounded-full bg-blue-100 text-rwanda-blue flex items-center justify-center mb-4">
-                        <i class="fas fa-robot text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">AI Tutor w'Igice cy'Ubuvanganzo</h3>
-                    <p class="text-gray-600 mb-4">
-                        Ubufasha bwa AI bushingiye ku icyongereza, Ikinyarwanda, n'izindi ndimi zikoreshwa mu Rwanda, bukora mu buryo bwo kwigana n'abanyeshuri.
-                    </p>
-                    <div class="flex items-center text-sm text-green-600">
-                        <i class="fas fa-check-circle mr-2"></i>
-                        <span>Igisubizo cyihariye ku banyeshuri bose :cite[2]:cite[8]</span>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
-                    <div class="w-12 h-12 rounded-full bg-yellow-100 text-rwanda-yellow flex items-center justify-center mb-4">
-                        <i class="fas fa-mobile-alt text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Gukoresha utagira Internet</h3>
-                    <p class="text-gray-600 mb-4">
-                        Koresha SMS, WhatsApp, cyangwa app yo ku mudasobwa utagira interinet kugirango ukomeze kwiga aho uko ari ho hose.
-                    </p>
-                    <div class="flex items-center text-sm text-green-600">
-                        <i class="fas fa-check-circle mr-2"></i>
-                        <span>Yemewe ku turere dutagira interinet :cite[6]</span>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
-                    <div class="w-12 h-12 rounded-full bg-green-100 text-rwanda-blue flex items-center justify-center mb-4">
-                        <i class="fas fa-book text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Amasomo yihuje n'intego z'Uburezi</h3>
-                    <p class="text-gray-600 mb-4">
-                        Amasomo yose ahuriza hamwe n'intego z'Uburezi mu Rwanda (REB), akaziba igice cy'amasomo y'ishuri.
-                    </p>
-                    <div class="flex items-center text-sm text-green-600">
-                        <i class="fas fa-check-circle mr-2"></i>
-                        <span>Igenderewe abanyeshuri kuva P1 kugeza S6 :cite[10]</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Catálogo estilo mosaico -->
+<section class="py-16 bg-brand-cream">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-playfair font-bold text-center mb-12 text-brand-black">Catálogo Destacado</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+<!-- Producto 1 -->
+<div class="bg-white rounded-lg overflow-hidden shadow hover:-translate-y-2 transition-transform duration-300">
+<div class="bg-white p-4 rounded-lg border border-gray-100">
+<img src="image.png" alt="Vestido Negro" class="w-full h-80 object-cover rounded-lg">
+</div>
+<div class="p-5">
+<h3 class="font-playfair text-xl mb-1">Vestido Ana - Negro Clásico</h3>
+<p class="text-gray-600 mb-2">Elegancia atemporal. Perfecto para reuniones y servicios dominicales.</p>
+<span class="block text-sm text-gray-500 mb-1">Tallas: S, M, L</span>
+<span class="block font-bold text-lg text-brand-black">$75</span>
+</div>
+</div>
+<!-- Producto 2 -->
+<div class="bg-white rounded-lg overflow-hidden shadow hover:-translate-y-2 transition-transform duration-300">
+<div class="bg-white p-4 rounded-lg border border-gray-100">
+<img src="image copy 2.png" alt="Vestido Floral Celeste" class="w-full h-80 object-cover rounded-lg">
+</div>
+<div class="p-5">
+<h3 class="font-playfair text-xl mb-1">Vestido Celeste Floral</h3>
+<p class="text-gray-600 mb-2">Fresco, floral y modesto. Ideal para misioneras y domingos de verano.</p>
+<span class="block text-sm text-gray-500 mb-1">Tallas: M, L, XL</span>
+<span class="block font-bold text-lg text-brand-black">$68</span>
+</div>
+</div>
+<!-- Producto 3 -->
+<div class="bg-white rounded-lg overflow-hidden shadow hover:-translate-y-2 transition-transform duration-300">
+<div class="bg-white p-4 rounded-lg border border-gray-100">
+<img src="image copy 3.png" alt="Vestido Violeta" class="w-full h-80 object-cover rounded-lg">
+</div>
+<div class="p-5">
+<h3 class="font-playfair text-xl mb-1">Vestido Azul Midi</h3>
+<p class="text-gray-600 mb-2">Con manga abullonada y corte midi. Para un look discreto y sofisticado.</p>
+<span class="block text-sm text-gray-500 mb-1">Tallas: S, M</span>
+<span class="block font-bold text-lg text-brand-black">$70</span>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Courses Section -->
-    <section id="courses" class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center mb-10">
-                <h2 class="text-3xl font-bold text-rwanda-blue">Amasomo</h2>
-                <div class="flex space-x-2">
-                    <button class="px-4 py-2 bg-gray-200 rounded-full text-sm">Byose</button>
-                    <button class="px-4 py-2 bg-rwanda-blue text-white rounded-full text-sm">Imibare</button>
-                    <button class="px-4 py-2 bg-gray-200 rounded-full text-sm">Ikinyarwanda</button>
-                    <button class="px-4 py-2 bg-gray-200 rounded-full text-sm">Science</button>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Course Card 1 -->
-                <div class="course-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300 relative">
-                    <div class="relative">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200' fill='%2320603d'%3E%3Crect width='400' height='200' fill='%23e5e7eb'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='24' fill='%2320603d'%3EImibare y'Inguzanyo%3C/text%3E%3C/svg%3E" 
-                             alt="Imibare y'inguzanyo" class="w-full h-48 object-cover">
-                        <div class="offline-badge absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-gray-700">
-                            <i class="fas fa-download mr-1"></i> Kubikura
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex justify-between items-start">
-                            <h3 class="font-bold text-lg mb-2">Inguzanyo: Imibare y'inguzanyo</h3>
-                            <span class="bg-blue-100 text-rwanda-blue text-xs px-2 py-1 rounded">P5 - S3</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">
-                            Menya uburyo bwo kubara inguzanyo, amafaranga yishyurwa, n'ibindi byose bijyanye n'inguzanyo.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center">
-                                <i class="fas fa-clock text-gray-400 mr-1"></i>
-                                <span class="text-sm">Iminota 45</span>
-                            </div>
-                            <button class="text-sm text-rwanda-blue font-semibold">Tangira nonaha →</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Course Card 2 -->
-                <div class="course-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300 relative">
-                    <div class="relative">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200' fill='%2320603d'%3E%3Crect width='400' height='200' fill='%23e5e7eb'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='24' fill='%2320603d'%3EKwandika Ikinyarwanda%3C/text%3E%3C/svg%3E" 
-                             alt="Kwandika Ikinyarwanda" class="w-full h-48 object-cover">
-                        <div class="offline-badge absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-gray-700">
-                            <i class="fas fa-robot mr-1"></i> AI Tutor
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex justify-between items-start">
-                            <h3 class="font-bold text-lg mb-2">Kwandika neza Ikinyarwanda</h3>
-                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">P3 - P6</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">
-                            Menya uburyo bwo kwandika ibisomwa, impuzandimi, n'imyandikire y'icyongereza mu buryo bworoshye.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center">
-                                <i class="fas fa-video text-gray-400 mr-1"></i>
-                                <span class="text-sm">Vidiyo 12</span>
-                            </div>
-                            <button class="text-sm text-rwanda-blue font-semibold">Tangira nonaha →</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Course Card 3 -->
-                <div class="course-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300 relative">
-                    <div class="relative">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200' fill='%2320603d'%3E%3Crect width='400' height='200' fill='%23e5e7eb'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='24' fill='%2320603d'%3EBiologiya: Ibimera%3C/text%3E%3C/svg%3E" 
-                             alt="Biologiya: Ubuzima bw'ibimera" class="w-full h-48 object-cover">
-                        <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-gray-700">
-                            <i class="fas fa-sms mr-1"></i> SMS
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex justify-between items-start">
-                            <h3 class="font-bold text-lg mb-2">Biologiya: Ubuzima bw'ibimera</h3>
-                            <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">S1 - S3</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">
-                            Menya uko ibimera bitera, bihunga, kandi bikora photosynthesis mu buryo bworoshye.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center">
-                                <i class="fas fa-question-circle text-gray-400 mr-1"></i>
-                                <span class="text-sm">Ibibazo 24</span>
-                            </div>
-                            <button class="text-sm text-rwanda-blue font-semibold">Tangira nonaha →</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Frase motivacional estilo SUD -->
+<section class="bg-brand-accent py-8">
+<div class="container mx-auto px-4 text-center">
+<blockquote class="italic text-lg font-playfair text-brand-black max-w-2xl mx-auto">
+“La modestia es un reflejo de nuestro compromiso con el Señor. Viste con propósito, inspira con tu ejemplo.”
+</blockquote>
+</div>
+</section>
 
-    <!-- AI Tutor Section -->
-    <section id="ai-tutor" class="py-16 bg-rwanda-blue text-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4">Umwarimu wa AI: SomaBot</h2>
-                <p class="max-w-2xl mx-auto">Chatbot y'Ubuvanganzo ifasha mu kwiga iby'amasomo yose mu buryo bw'ibiganiro. Ikora ndetse nta internet ufite!</p>
-            </div>
-            
-            <div class="max-w-4xl mx-auto bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden">
-                <div class="grid grid-cols-1 md:grid-cols-5">
-                    <div class="md:col-span-2 p-8 border-r border-white/20">
-                        <h3 class="text-xl font-bold mb-4">Ibyiza bya SomaBot</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle mt-1 mr-3 text-rwanda-yellow"></i>
-                                <span>Igisubizo cyihariye ku banyeshuri bose :cite[2]</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle mt-1 mr-3 text-rwanda-yellow"></i>
-                                <span>Ibikoresho by'uburezi binyuze mu ikoranabuhanga mu Rwanda :cite[5]</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle mt-1 mr-3 text-rwanda-yellow"></i>
-                                <span>Gukora mu buryo bwa SMS, WhatsApp, App, na Web</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle mt-1 mr-3 text-rwanda-yellow"></i>
-                                <span>Inyigisho zigezweho mu buryo bwo kwigisha :cite[4]</span>
-                            </li>
-                        </ul>
-                        
-                        <div class="mt-8">
-                            <h4 class="font-bold mb-2">Kanda hano:</h4>
-                            <div class="flex space-x-3">
-                                <button class="flex-1 bg-white text-rwanda-blue py-2 rounded font-bold">
-                                    <i class="fab fa-whatsapp mr-1"></i> WhatsApp
-                                </button>
-                                <button class="flex-1 bg-gray-800 text-white py-2 rounded font-bold">
-                                    <i class="fas fa-sms mr-1"></i> SMS
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="md:col-span-3 bg-white/5 p-6">
-                        <div class="bg-gray-800 rounded-lg p-4 h-full">
-                            <div class="flex items-center mb-4">
-                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M19 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h4l3 3 3-3h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-6 16h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 11.9 13 12.5 13 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z'/%3E%3C/svg%3E" 
-                                     alt="SomaBot" class="w-10 h-10 rounded-full bg-rwanda-blue p-2">
-                                <div class="ml-3">
-                                    <h3 class="font-bold">SomaBot</h3>
-                                    <p class="text-xs opacity-70">Ubuvanganzo • Ikinyarwanda • Imibare</p>
-                                </div>
-                            </div>
-                            
-                            <div class="space-y-3 mb-4 h-80 overflow-y-auto">
-                                <div class="chatbot-message bg-gray-700 rounded-lg p-3 rounded-bl-none max-w-xs">
-                                    <p>Mwaramutse! Ninde mushobora kumbwira icyo ushaka kwiga uyu munsi?</p>
-                                </div>
-                                
-                                <div class="chatbot-message flex justify-end">
-                                    <div class="bg-rwanda-blue rounded-lg p-3 rounded-br-none max-w-xs">
-                                        <p>Mwaramutse SomaBot! Nshaka kwiga Imibare y'inguzanyo</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="chatbot-message bg-gray-700 rounded-lg p-3 rounded-bl-none max-w-xs">
-                                    <p>Ni byiza! Reka tubone inguzanyo y'amafaranga 50,000 FRW, igihembwe cy'amezi 12, isanzwe ishura 12% mu mwaka. Mbwire amafaranga wakwishyura buri kwezi?</p>
-                                    <div class="mt-2 flex space-x-2">
-                                        <button class="text-xs bg-gray-600 px-2 py-1 rounded">Nanone</button>
-                                        <button class="text-xs bg-gray-600 px-2 py-1 rounded">Mbwiriza</button>
-                                        <button class="text-xs bg-gray-600 px-2 py-1 rounded">Nta bushake</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex border-t border-gray-700 pt-3">
-                                <input type="text" placeholder="Andika ubutumwa hano..." class="flex-1 bg-gray-700 border-none rounded-full px-4 py-2 placeholder-gray-400 text-white">
-                                <button class="ml-2 bg-rwanda-yellow text-rwanda-blue w-10 h-10 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-paper-plane"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Testimonios -->
+<section class="py-16 bg-brand-cream">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-playfair font-bold text-center mb-12 text-brand-black">Testimonios de Nuestras Clientas</h2>
+<div class="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
+<!-- Testimonio 1 -->
+<div class="bg-white p-6 rounded-lg shadow">
+<div class="flex flex-col md:flex-row gap-6">
+<img src="evidencia1.png" alt="Cliente usando vestido negro"
+class="w-full md:w-1/2 h-96 object-contain rounded-lg">
+<div class="flex-1">
+<p class="italic mb-4">"Desde que uso estos vestidos, me siento cómoda y elegante en cada reunión. ¡Recomendados para todas las jóvenes SUD!"</p>
+<p class="font-semibold">- Valeria Pérez, Quito</p>
+</div>
+</div>
+</div>
 
-    <!-- Offline Section -->
-    <section id="offline" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-rwanda-blue mb-4">Gukora utagifite Internet</h2>
-                <p class="max-w-2xl mx-auto text-gray-600">SomaRwanda ikora no mu turere dutagira interinet. Koresha uburyo bwa SMS, WhatsApp, cyangwa App yo ku mudasobwa</p>
-            </div>
-            
-            <div class="max-w-5xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-xl shadow-md text-center">
-                        <div class="w-16 h-16 bg-blue-100 text-rwanda-blue rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-sms text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">SMS</h3>
-                        <p class="text-gray-600 mb-4">
-                            Tuma "SOMA" kuri 4567 kugirango ubone amasomo, ibibazo, n'ibisubizo vya SMS.
-                        </p>
-                        <div class="text-sm text-gray-500">
-                            <i class="fas fa-mobile-alt mr-2"></i>
-                            <span>Ikoreshwa na Telekom, MTN, na Airtel</span>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-xl shadow-md text-center">
-                        <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fab fa-whatsapp text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">WhatsApp</h3>
-                        <p class="text-gray-600 mb-4">
-                            Kora na SomaBot binyuze muri WhatsApp ukoresheje +250 796132866.
-                        </p>
-                        <div class="text-sm text-gray-500">
-                            <i class="fas fa-robot mr-2"></i>
-                            <span>AI Tutor ikora ku buryo bwa WhatsApp</span>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-xl shadow-md text-center">
-                        <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-download text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Kubikura amasomo</h3>
-                        <p class="text-gray-600 mb-4">
-            Bika amasomo, vidiyo, n'ibibazo ujya ukoresha igihe ufite interinet, uzabisanga uko ari byo byose utagifite interinet.
-                        </p>
-                        <div class="text-sm text-gray-500">
-                            <i class="fas fa-mobile-alt mr-2"></i>
-                            <span>Ikora ku mudasobwa, Tableti, na Smartphone</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-12 bg-rwanda-yellow/20 border border-rwanda-yellow rounded-xl p-8">
-                    <div class="flex flex-col md:flex-row items-center">
-                        <div class="mb-6 md:mb-0 md:mr-6">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='%23fad201'%3E%3Cpath d='M32 2C15.432 2 2 15.432 2 32s13.432 30 30 30 30-13.432 30-30S48.568 2 32 2zm0 54C18.745 56 8 45.255 8 32S18.745 8 32 8s24 10.745 24 24-10.745 24-24 24zm-2-34h4v16h-4V22zm0 20h4v4h-4v-4z'/%3E%3C/svg%3E" 
-                                 alt="Offline Access" class="w-16 h-16">
-                        </div>
-                        <div class="text-center md:text-left">
-                            <h3 class="text-xl font-bold text-gray-800">Shaka amasomo utagifite Internet?</h3>
-                            <p class="text-gray-700 mt-2">
-                                Tuma "SOMA LIST" kuri 4567 kugirango ubone urutonde rw'amasomo aboneka mu buryo bwa SMS.
-                            </p>
-                        </div>
-                        <button class="mt-6 md:mt-0 md:ml-auto bg-rwanda-blue text-white px-6 py-3 rounded-full font-bold hover:bg-blue-800 transition">
-                            Tangira nonaha
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Testimonio 2 -->
+<div class="bg-white p-6 rounded-lg shadow">
+<div class="flex flex-col md:flex-row gap-6">
+<img src="evidencia2.png" alt="Cliente usando vestido celeste"
+class="w-full md:w-1/2 h-96 object-contain rounded-lg">
+<div class="flex-1">
+<p class="italic mb-4">"La calidad y los diseños son perfectos para servir en la misión y mantener mi compromiso con la modestia."</p>
+<p class="font-semibold">- Camila Herrera, Misionera en Lima</p>
+</div>
+</div>
+</div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white pt-16 pb-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Soma<span class="text-rwanda-yellow">Rwanda</span></h3>
-                    <p class="text-gray-400 mb-4">
-                        Uburezi bwa Kuri bose. Platform y'Uburezi ku ikoranabuhanga yubatswe mu Rwanda, kubanyarwanda.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/MFURANZIZAHAMZA" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://x.com/Mfuranziza100" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/mfuranzizahamza/" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
-                        <a href="https://web.whatsapp.com/" class="text-gray-400 hover:text-white"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold text-lg mb-4">Amasomo</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">Imibare</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Ikinyarwanda</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Science</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Icyongereza</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Biologiya</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold text-lg mb-4">Amashami</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">Amashuri Abanza</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Amashuri yisumbuye</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Abanyeshuri ba Kaminuza</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Abakozi ba Leta</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Abashaka akazi</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold text-lg mb-4">Tubone</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white">Terefone: +250 796132866</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Email: mfuranzizahamza@gmail.com</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">WhatsApp: +250 796132866</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">REB Building, Kigali</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
-                <p>© 2025 SomaRwanda. Byose uburenganzira bwabitswe. Yubashije gukoresha REB, SMART Africa Secretariat, na Minisiteri y'Uburezi.</p>
-            </div>
-        </div>
-    </footer>
+<!-- Testimonio 3 -->
+<div class="bg-white p-6 rounded-lg shadow">
+<div class="flex flex-col md:flex-row gap-6">
+<img src="evidencia3.png" alt="Cliente usando vestido azul"
+class="w-full md:w-1/2 h-96 object-contain rounded-lg">
+<div class="flex-1">
+<p class="italic mb-4">"Los vestidos son perfectos para asistir a la iglesia. Me encantan los diseños modestos y elegantes."</p>
+<p class="font-semibold">- María Santos, Guayaquil</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Contacto -->
+<section class="py-16 bg-brand-blue">
+<div class="container mx-auto px-4 max-w-4xl">
+<h2 class="text-3xl font-playfair font-bold text-center mb-8 text-brand-black">Contáctanos</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Formulario de contacto -->
+<form class="space-y-4 bg-white p-6 rounded-lg shadow" autocomplete="off">
+<div>
+<label class="block text-gray-700 mb-2">Nombre</label>
+<input type="text" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent">
+</div>
+<div>
+<label class="block text-gray-700 mb-2">Correo electrónico</label>
+<input type="email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent">
+</div>
+<div>
+<label class="block text-gray-700 mb-2">Mensaje</label>
+<textarea required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent"></textarea>
+</div>
+<button type="submit" class="w-full bg-brand-black text-white py-2 rounded-lg hover:bg-brand-accent transition">Enviar mensaje</button>
+</form>
+<!-- WhatsApp Contacto -->
+<div class="flex flex-col items-center justify-center">
+<a href="https://wa.me/593123456789" target="_blank" class="inline-flex items-center bg-brand-black text-white px-6 py-3 rounded-full text-lg hover:bg-brand-accent transition">
+<svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.478A12.004 12.004 0 0 0 12 0C5.373 0 0 5.373 0 12c0 2.117.553 4.14 1.601 5.938L0 24l6.201-1.577A11.957 11.957 0 0 0 12 24c6.627 0 12-5.373 12-12 0-3.193-1.246-6.2-3.48-8.522zM12 22.035c-1.847 0-3.662-.486-5.237-1.404l-.374-.216-3.682.936.985-3.585-.243-.378C2.165 16.51 1.666 14.3 1.666 12c0-5.72 4.614-10.334 10.334-10.334 2.758 0 5.357 1.076 7.322 3.027A10.326 10.326 0 0 1 22.334 12c0 5.72-4.614 10.334-10.334 10.334z"/><path d="M17.524 14.713l-2.309-.661a1.074 1.074 0 0 0-1.024.273l-.502.512a8.37 8.37 0 0 1-3.895-3.894l.512-.501a1.077 1.077 0 0 0 .273-1.024l-.66-2.31a1.076 1.076 0 0 0-1.003-.75h-.79a1.073 1.073 0 0 0-1.074 1.073c0 6.038 4.926 10.964 10.964 10.964a1.073 1.073 0 0 0 1.073-1.073v-.79a1.074 1.074 0 0 0-.751-1.003z"/></svg>
+WhatsApp
+</a>
+<p class="mt-4 text-brand-black">¡Envíanos un mensaje para consultar tallas, disponibilidad o realizar tu pedido!</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-brand-black py-6">
+<div class="container mx-auto px-4 text-center text-white text-sm">
+<p>© 2025 JM Ropastore Church. Moda que habla de ti.</p>
+</div>
+</footer>
 </body>
 </html>
