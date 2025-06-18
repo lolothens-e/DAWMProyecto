@@ -2,12 +2,7 @@ Descripción del problema:
 
 
 
-Actualmente, el negocio en cuestión se dedica a la venta de vestidos, pero enfrenta diversas dificultades relacionadas con la presentación de su catálogo de productos. La dueña del negocio utiliza WhatsApp como único medio para mostrar los vestidos, enviando fotos generadas por inteligencia artificial sin un orden claro ni información complementaria. Este método resulta poco práctico para los clientes, ya que deben revisar manualmente una gran cantidad de imágenes sin conocer detalles clave como el precio, las tallas disponibles, la calidad del producto o las condiciones de envío. Esta falta de organización y transparencia no solo genera desinterés en los posibles compradores, sino que también limita el alcance y profesionalismo del negocio.
-
-
-
-Queremos ayudar a resolver esta necesidad desarrollando una aplicación web y/o móvil que permita gestionar y visualizar un catálogo digital ordenado, atractivo y funcional, alineado con los objetivos de la materia de Desarrollo de Aplicaciones Web y Móviles.
-
+El negocio de venta de vestidos "JM ropa store_church" enfrenta obstáculos significativos para presentar sus productos de manera clara y atractiva. Actualmente, la única vía utilizada para mostrar el catálogo es WhatsApp, donde la dueña envía fotografías generadas por inteligencia artificial sin ningún orden, acompañamiento de información relevante ni criterios de organización. Esta dinámica obliga a los clientes a revisar manualmente un alto volumen de imágenes, dificultando el acceso a datos clave como precios, tallas, calidad o condiciones de envío. La ausencia de un sistema estructurado limita la experiencia del usuario, desmotiva a potenciales compradores y perjudica tanto el alcance como la percepción de profesionalismo del negocio en un mercado cada vez más digitalizado y competitivo.
 
 
 https://dawmproyecto.vercel.app/
