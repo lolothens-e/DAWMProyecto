@@ -1,5 +1,4 @@
 import { initializeApp } from "firebase/app";
-import { getStorage } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-storage.js";
 import {
   getDatabase,
   ref,
